@@ -1,0 +1,28 @@
+body {
+	color: #51284F;
+	line-height: 1.5;
+}
+
+.AN-title {
+	font-weight: bolder;
+}
+
+.AN-subtitle {
+	font-weight: bolder;
+}
+
+.AN-error-message {
+	color: #7b092e;
+}
+
+.AN-success-message {
+	color: #06583a;
+}
+
+.AN-nav-right {
+	float: right;
+}
+
+.AN-nav-left {
+	float: left;
+}
