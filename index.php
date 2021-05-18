@@ -1,9 +1,9 @@
 <?php 
 	// Open session, load required files
+	session_start();
 	require_once "pdo.php";
 	require_once "style.php";
 	require_once "functions.php";
-	session_start();
 
 	// Declare required variables
 	$logged_in = false;
@@ -23,16 +23,16 @@
 
 		//Query database if user is authenticated
 		if ($logged_in == true) {
-			$view_db_pdo = $pdo -> prepare("SELECT * FROM PROFILE ORDER BY last_name, :user_id");
+			$view_db_pdo = $pdo -> prepare("SELECT * FROM profile ORDER BY last_name, :user_id");
 			$view_db_pdo -> bindParam(":user_id", $_SESSION["user_id"]);
 			$view_db_pdo -> execute();
 			$rows = $view_db_pdo -> fetchAll(PDO::FETCH_ASSOC);
 		} else {//Query database if user is not authenticated
-			$view_db_pdo = $pdo -> prepare("SELECT * FROM PROFILE ORDER BY last_name");
+			$view_db_pdo = $pdo -> prepare("SELECT * FROM profile ORDER BY last_name");
 			$view_db_pdo -> execute();
 			$rows = $view_db_pdo -> fetchAll(PDO::FETCH_ASSOC);
 		}		
-	}	
+	}
  ?>
  <!DOCTYPE html>
  <html lang="en">
